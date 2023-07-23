@@ -1,0 +1,157 @@
+{% extends 'website/layout.html' %}
+
+{% load static %}
+
+{% block body%}
+<style>
+  .col-md-4{
+    padding:1%;
+  }
+</style>
+<div id="first_page">
+  <div class="row" id="welcome_greet_div">
+      <div class="col-md-12">
+        <div class="welcome2">
+          <h2 style="font-family: Helvetica Neue;">{{date}}</h2>
+          <h1 style="font-family: Helvetica Neue;margin-bottom: 10px;" id="timestamp_greet">Good {{mor_eve}}, {{current_user.employee_name}}</h1></b>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content_stats">
+          <div class="file_upload">
+            <center><h1>Upload your Files Here</h1>
+            <div style="width: 50vw;" >
+            
+                <div>
+                  <label for="pdfInput" class="form-label">PDF File</label>
+                  <input class="form-control form-control-lg" id="pdfInput" type="file" accept=".pdf">
+                </div>
+                <center><button class="btn btn-success mt-3 mb-3"  id="submit_click">Upload</button></center>
+              
+            </div>
+          </center>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- JavaScript Generated page -->
+<div id="content" style="display: none;">
+  <div id="heading">
+    <h2 style="font-family: Helvetica Neue;">Topic: </h2>
+    <h3 id="file_name"></h3>  
+  </div>
+  <div class="nav_anchors">
+    <button class="btn btn-outline-primary active" id="summary_button" onclick="showContent('summarizer')" >Summariser</button>
+    <button class="btn btn-outline-primary" id="prompter_button" onclick="showContent('chatbot')" >GPT Prompter</button>
+  </div>
+  <hr>
+  <div class="moving-circle"></div>
+  <div class="loading-text" id="loadingText">Analyzing Document...</div>
+  <div class="loader" id="loader"></div>
+  <div class="summarizer" id="summarizer_section">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="summary_div">
+        <h3 style="font-family: Helvetica Neue;">Summary</h3>
+        <hr>
+        <div class="summary_box">
+          <!-- This systematic review investigated the use of Photobiomodulation Therapy (PBMT) in the treatment of mood disorders. Results from 16 studies (7 animal and 9 human) confirmed the effectiveness of PBMT in treating depression, anxiety, and bipolar disorder. PBMT was found to be comparable to fluoxetine and citalopram in animal studies and was particularly effective at low doses in humans. According to the Grade Practice Recommendations, PBMT can be classified as strongly recommended for moderate grade of depression and recommended for anxiety disorder. -->
+        </div>
+        <div class="refined_text" style="display: none;"></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        Disclaimer: This is a short summary generated on our default prompts, if u want to change or tune the parameters, see options below.
+      </div>
+      <hr>
+      <h4 style="font-family: Helvetica Neue;">Parameters</h4>
+        <div id="original_parameters" style="padding: 2%;">
+          <div class="model_info">
+            <p class="mr-2">LLM Model : </p>
+            <i>OpenAi</i>
+          </div>
+          <div class="model_info">
+            <p class="mr-2">Query Model : </p>
+            <i>Langchain</i>
+          </div>
+          <div class="model_info">
+            <p class="mr-2">Text Tokens : </p>
+            <i id="text_tokens"></i>
+          </div>
+          <div class="model_info">
+            <p class="mr-2">Model Temperature : </p>
+            <i id="model_temp"></i>
+          </div>
+          <div class="model_info">
+            <p class="mr-2">Customized Prompt : </p>
+            <i id="model_prompt"></i>
+          </div>
+      </div>
+      <hr>
+      <h4 style="font-family: Helvetica Neue;">Tune Parameters</h4>
+
+      <small for="temperature" class="form-label">* Choose an option based on your required type of summary output.</small>
+
+      <select name="" id="temperature" class="form-control">
+        <option value="0.3">Factual</option>
+        <option value="0.5">Moderate</option>
+        <option value="0.9">Intelligent A.I </option>
+      </select>
+      <hr>
+      
+      <h4 style="font-family: Helvetica Neue;">Custom Summarizer Prompt</h4>
+
+      <div>
+        <textarea name="" class="form-control" id="custom_prompt" cols="35" rows="5"  placeholder="Keep your Prompt Precise and to the point" style="resize: none;width: auto;"></textarea>
+      </div>
+
+      <div id="obj_id_div" style="display: none;"></div>
+
+      <button id="sendButton" class="btn btn-success" onclick="tune_parameter()" style="margin-top: 3%;">Generate Summary</button>
+    
+    </div>
+  </div>
+  </div>
+
+  <div class="chatbot" id="chatbot_section" style="display: none;">
+    <h3 style="font-family: Helvetica Neue;">Chatbot</h3>
+    <hr>
+  
+  <div class="chat-container">
+    <div id="chat-display">
+      <!-- Initially hidden welcome message -->
+      <div id="welcome-message" class="text-center">
+        <p>Welcome to GPT Prompter !!!</p>
+        <p>I'll Answer any of your question</p>
+        <p>Within the domain of your uploaded pdf</p>
+      </div>
+    </div>
+    <div class="user-input">
+      <div class="row">
+        <div class="col-md-10 d-flex">
+          <div class="form-inline flex-grow-1 mr-2">
+            <label for="question" class="mr-2">Question</label>
+            <input type="text" class="form-control flex-grow-1" id="user-input" placeholder="Ask anything...">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary btn-block mb-2 mr-2" onclick="sendQuestion()">Ask</button>
+        </div>
+      </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

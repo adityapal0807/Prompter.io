@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/styles.css' %}">
+    
+</head>
+<body>
+    <div class="primary_section">
+        <div class="row" style="height: 80vh;background-color: #41B3A3;">
+            <div class="col-md-6" style="padding-left: 5%; padding-top: 2%;">
+                <div class="headings">
+                    <span style="font-size: 180px;">PDF</span>
+                    <h1>Summarizer <span>&</span> Prompter</h1>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="right_div">
+                    <!-- <img src="{% static 'website/pdf.png' %}" alt="" style="width: 300px;height: 300px;"> -->
+                </div>
+            </div>
+        </div>
+        
+
+            <hr>
+        <!-- Button trigger modal -->
+
+        <div id="summary">
+            <div class="row">
+                <div class="col-md-6">
+                    Here will show the summary
+                </div>
+                <div class="col-md-6">
+                    <p>Here will come the details about the summary</p>
+                    Here will show the temperature options and any personalised summarizing technique.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script src="{% static 'website/script.js' %}"></script>
+</html>
