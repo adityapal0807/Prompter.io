@@ -1,12 +1,15 @@
 # Medical Research Paper Summarizer and GPT-3 Chatbot Web Application
 
+## Youtube Link - https://youtu.be/ejwSfqkxdcM
+
 ## Overview
 
 This web application allows users to upload medical research papers in PDF format and leverage the power of Langchain and OpenAI's GPT-3 to summarize the document and interact with its contents using a chatbot. The application is built using Django for the API and REST framework for the frontend. It comprises two major features: Summarizer and GPT Prompter.
 
 ## Project Working Snippets
 
-![Home Page](Github_Snippets\1.png) ![Dashboard](Github_Snippets\2.png) ![Summarizer](Github_Snippets\3.png) ![GPT Prompter](Github_Snippets\4.png)
+
+![Home Page](Github_Snippets/1.png) ![Dashboard](Github_Snippets/2.png) ![Summarizer](Github_Snippets/3.png) ![GPT Prompter](Github_Snippets/4.png)
 
 ## Distinctiveness and Complexity
 
@@ -41,7 +44,6 @@ The web application is built using the following technologies:
 
 - Django: Backend framework to handle API and database operations.
 - HTML, CSS, and JavaScript: Frontend development for user interface and interaction.
-- Django REST Framework: Used for building RESTful APIs and managing frontend interactions.
 - Langchain: Algorithm used for generating default summaries from medical research papers.
 - OpenAI GPT-3: Language model used to power the interactive chatbot.
 
@@ -52,7 +54,7 @@ To set up and run the web application locally, follow these steps:
 1. Clone the repository from GitHub.
 2. Install the required dependencies using `pip install -r requirements.txt`.
 3. Configure the Django settings, such as database settings and API keys for Langchain and OpenAI GPT-3.
-4. Configure a .env file containing your OpenAi Api Key `OPENAI_API_KEY = 'your openai api key`
+4. Configure a .env file containing your OpenAi Api Key `OPENAI_API_KEY = 'your openai api key'`
 5. Run the Django development server using `python manage.py runserver`.
 6. Access the application through your web browser at `http://localhost:8000`.
 
