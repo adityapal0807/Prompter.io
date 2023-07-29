@@ -1,7 +1,5 @@
 # Medical Research Paper Summarizer and GPT-3 Chatbot Web Application
 
-## Youtube Link - https://youtu.be/ejwSfqkxdcM
-
 ## Overview
 
 This web application allows users to upload medical research papers in PDF format and leverage the power of Langchain and OpenAI's GPT-3 to summarize the document and interact with its contents using a chatbot. The application is built using Django for the API and REST framework for the frontend. It comprises two major features: Summarizer and GPT Prompter.
